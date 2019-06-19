@@ -1,12 +1,12 @@
 {
-  "name": "react-express",
+  "name": "show_me",
   "version": "1.0.0",
   "main": "index.tsx",
   "license": "MIT",
   "scripts": {
     "build": "webpack --config webpack.config.server.js&&webpack --config webpack.config.client.js",
     "css-lint": "stylelint --fix \"**/*.css\"",
-    "start": "yarn run build&&node public/server.js",
+    "start": "yarn run build&&nodemon -L",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
@@ -15,11 +15,13 @@
     "@types/react-dom": "^16.8.4",
     "@types/react-router-dom": "^4.3.4",
     "@types/webpack-env": "^1.13.9",
+    "@types/webpack-hot-middleware": "^2.16.5",
     "autoprefixer": "^9.6.0",
     "css-loader": "^3.0.0",
     "cssnano": "^4.1.10",
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.13.0",
+    "nodemon": "^1.19.1",
     "postcss-loader": "^3.0.0",
     "postcss-preset-env": "^6.6.0",
     "postcss-sorting": "^5.0.0",
@@ -27,6 +29,7 @@
     "stylelint": "^10.1.0",
     "stylelint-config-standard": "^18.3.0",
     "ts-loader": "^6.0.3",
+    "ts-node": "^8.3.0",
     "typescript": "^3.5.2",
     "url-loader": "^2.0.0",
     "webpack": "^4.34.0",

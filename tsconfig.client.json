@@ -15,7 +15,7 @@
     "noFallthroughCasesInSwitch": true
   },
   "exclude": [
-    "server/server.tsx",
+    "src/server/server.ts",
     "node_modules"
   ]
 }
