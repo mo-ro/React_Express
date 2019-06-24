@@ -3,6 +3,8 @@ const webpack = require('webpack');
 const postcssPresetEnv = require('postcss-preset-env');
 const cssnano = require('cssnano');
 const postcssSort = require('postcss-sorting');
+const postcssImport = require('postcss-import');
+const postcssCustomMedia = require('postcss-custom-media');
 
 const MODE = 'development';
 const enabledSourceMap = MODE === 'development';
@@ -37,7 +39,7 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/,
+        test: /\.pcss$/,
         use: [
           'style-loader',
           {
@@ -53,19 +55,21 @@ module.exports = {
             options: {
               ident: 'postcss',
               plugins: () => [
-                postcssPresetEnv ({
-                  autoprefixer: { grid: true },
-                  importFrom: './src/css/settings/variable.css',
-                  features: {
-                    stage: 3,
-                    'nesting-rules': true
-                  }
-                }),
+                postcssImport(),
+                postcssCustomMedia(),
                 cssnano ({
                   preset: 'default',
                 }),
                 postcssSort ({
                   propertiesOrder: 'alphabetical'
+                }),
+                postcssPresetEnv ({
+                  autoprefixer: { grid: true },
+                  importFrom: './src/frontend/css/index.pcss',
+                  features: {
+                    stage: 3,
+                    'nesting-rules': true
+                  }
                 })
               ]
             } 
