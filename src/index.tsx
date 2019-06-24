@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import App from './App';
-import "./css/index.css";
+import "./css/index.pcss";
 
 const render = (_App) =>{
   ReactDOM.render(
